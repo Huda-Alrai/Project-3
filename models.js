@@ -1,5 +1,11 @@
 const users = [
   {
+    email: "test1@gmail.com",
+    // 12345
+    password: "$2b$10$hc3sFxvR36xkLDVBNG6tQOFct90MisRmeAtCfQJ9WlaAkb1w/dWHG",
+    role_id: 2
+  },
+  {
     email: "admin@gmail.com",
     password: "$2b$10$ytNobitJZNo0WeuyEqG85.erwKBKaBtunsR.u2GKKG1zynsuUvv6C",
     role_id: 1,
