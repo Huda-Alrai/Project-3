@@ -81,38 +81,43 @@ const getUsers = () => {
 //     return updatedUser;
 //   }
 
-  
+
 // }
 
 //modified delete
 const deleteUser = async (user) => {
   const usersLength = users.length
-
-    users = users.filter((u) => {
-
-      return user !== u.userName
-
-    })
-    if (users.length ===usersLength){
+  users = users.filter((u) => {
+    return user !== u.userName
+  })
+    if (users.length === usersLength) {
       return 'no user found to be deleted'
-    }else {
+  } else {
       return users;
-    }
-    
-  
-
-  
+  }
 }
 
 //update
+//update depend on username - update whatever you put in body 
+//if you pass email it will updated otherwise it will be as it is 
+const updateUser = async (user) =>{
+  const selected = users.filter((u)=>{
+    return user.query.userName === u.userName
+  
+  })
+  
+  selected[0].userName = user.body.userName || selected[0].userName
+  selected[0].email = user.body.email || selected[0].email
+  selected[0].password = await bcrypt.hash(user.body.password, Number(process.env.SALT)) || selected[0].password
 
+  return users
 
-
-
+}
 
 module.exports = {
   register,
   login,
   getUsers,
   deleteUser,
+  updateUser,
 };

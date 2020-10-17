@@ -1,5 +1,5 @@
 const express = require("express");
-const { register, login, getUsers, deleteUser} = require("./controller");
+const { register, login, getUsers, deleteUser, updateUser } = require("./controller");
 const middleware = require("./middlewares");
 
 const authRouter = express.Router();
@@ -31,6 +31,14 @@ authRouter.post("/login", async (req, res) => {
 authRouter.delete("/delete",async (req, res) =>{
   try{
     res.json(await deleteUser(req.query.userName));
+  } catch (err){
+    throw err;
+  }
+});
+
+authRouter.put("/update",async (req, res) =>{
+  try{
+    res.json(await updateUser(req));
   } catch (err){
     throw err;
   }
