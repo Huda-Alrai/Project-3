@@ -1,36 +1,37 @@
 const users = [
-  {
-    email: "test1@gmail.com",
-    // 12345
-    password: "$2b$10$hc3sFxvR36xkLDVBNG6tQOFct90MisRmeAtCfQJ9WlaAkb1w/dWHG",
-    role_id: 2
-  },
-  {
+  
+  { 
+    userName:"admin",
     email: "admin@gmail.com",
     password: "$2b$10$ytNobitJZNo0WeuyEqG85.erwKBKaBtunsR.u2GKKG1zynsuUvv6C",
     role_id: 1,
   },
   {
+    userName:"user1",
     email: "user1234@gmail.com",
     password: "$2b$10$ytNobitJZNo0WeuyEqG85.erwKBKaBtunsR.u2GKKG1zynsuUvv6C",
     role_id: 2,
   },
   {
+    userName:"user2",
     email: "user2@gmail.com",
     password: "$2b$10$ytNobitJZNo0WeuyEqG85.erwKBKaBtunsR.u2GKKG1zynsuUvv6C",
     role_id: 2,
   },
   {
+    userName:"user3",
     email: "user3@gmail.com",
     password: "$2b$10$ytNobitJZNo0WeuyEqG85.erwKBKaBtunsR.u2GKKG1zynsuUvv6C",
     role_id: 2,
   },
   {
+    userName:"user4",
     email: "user4@gmail.com",
     password: "$2b$10$ytNobitJZNo0WeuyEqG85.erwKBKaBtunsR.u2GKKG1zynsuUvv6C",
     role_id: 2,
   },
   {
+    userName:"user5",
     email: "user5@gmail.com",
     password: "$2b$10$ytNobitJZNo0WeuyEqG85.erwKBKaBtunsR.u2GKKG1zynsuUvv6C",
     role_id: 2,

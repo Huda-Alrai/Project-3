@@ -9,10 +9,10 @@ const register = async (user) => {
   const pendingUser = users.filter((element) => {
     return element.email === user.email
   })
-  
+
   if (pendingUser.length === 0) {
     const newUser = user;
-    console.log(newUser)
+
     newUser.password = await bcrypt.hash(user.password, Number(process.env.SALT))
     users.push(newUser)
     // return `new user created ${newUser} ` ???
@@ -35,7 +35,7 @@ const login = async (user) => {
 
     if (await bcrypt.compare(user.password, pendingUser[0].password)) {
       const savedPerm = roles.filter((p) => p.id === pendingUser[0].role_id)
-     
+
 
       const payload = {
         email: pendingUser[0].email,
@@ -61,8 +61,23 @@ const getUsers = () => {
   return users;
 };
 
+//Delete
+//delete requset upon username
+             //delete?userName=user1
+const deleteUser = async (user) =>{
+  const updatedUser = users.filter((u)=>{
+    
+    return user.query.userName !== u.userName
+
+  })
+  return updatedUser;
+}
+
+
+  
 module.exports = {
   register,
   login,
   getUsers,
+  deleteUser,
 };

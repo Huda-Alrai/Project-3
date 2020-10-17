@@ -1,5 +1,5 @@
 const express = require("express");
-const { register, login, getUsers } = require("./controller");
+const { register, login, getUsers, deleteUser} = require("./controller");
 const middleware = require("./middlewares");
 
 const authRouter = express.Router();
@@ -24,6 +24,14 @@ authRouter.post("/login", async (req, res) => {
   try {
     res.json(await login(req.body));
   } catch (err) {
+    throw err;
+  }
+});
+
+authRouter.delete("/delete",async (req, res) =>{
+  try{
+    res.json(await deleteUser(req));
+  } catch (err){
     throw err;
   }
 });
