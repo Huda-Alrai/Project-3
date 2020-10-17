@@ -30,7 +30,7 @@ authRouter.post("/login", async (req, res) => {
 
 authRouter.delete("/delete",async (req, res) =>{
   try{
-    res.json(await deleteUser(req));
+    res.json(await deleteUser(req.query.userName));
   } catch (err){
     throw err;
   }

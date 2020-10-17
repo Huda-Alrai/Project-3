@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { users, roles } = require("./models");
+let { users, roles } = require("./models");
 
 //Post
 
@@ -63,18 +63,53 @@ const getUsers = () => {
 
 //Delete
 //delete requset upon username
-             //delete?userName=user1
-const deleteUser = async (user) =>{
-  const updatedUser = users.filter((u)=>{
-    
-    return user.query.userName !== u.userName
+//delete?userName=user1
+// const deleteUser = async (user) => {
+//   const isUserExist = users.filter((u) => {
+//     return user.query.userName === u.userName
+//   })
+//   if (isUserExist.length === 0) {
+//     return 'sorry no user found to be deleted'
+//   }
+//   else {
+//     console.log(user.query.password)
+//     const updatedUser = users.filter((u) => {
 
-  })
-  return updatedUser;
-}
+//       return user.query.userName !== u.userName
 
+//     })
+//     return updatedUser;
+//   }
 
   
+// }
+
+//modified delete
+const deleteUser = async (user) => {
+  const usersLength = users.length
+
+    users = users.filter((u) => {
+
+      return user !== u.userName
+
+    })
+    if (users.length ===usersLength){
+      return 'no user found to be deleted'
+    }else {
+      return users;
+    }
+    
+  
+
+  
+}
+
+//update
+
+
+
+
+
 module.exports = {
   register,
   login,
